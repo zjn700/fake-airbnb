@@ -14,6 +14,13 @@ const routes: Routes = [
     path: 'bookings',
     loadChildren: './bookings/bookings.module#BookingsPageModule'
   }
+
+  // below are the default routes provided by ng cli. one path for each route
+  // just preload (PreloadAllModules) the top level pages (auth/places/bookings)
+  // this lazyload routes for child pages/components (see PlacesModule and
+  // ...PlacesRoutingModule for example )
+
+
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   // { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },

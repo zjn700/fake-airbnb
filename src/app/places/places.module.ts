@@ -16,28 +16,32 @@ import { PlacesRoutingModule } from './places-routing.module';
 })
 export class PlacesPageModule { }
 
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-// import { Routes, RouterModule } from '@angular/router';
+// below is the default module produced by ng cli.
+// replace the identified items with the PlacesRoutingModule ( see => markers)
 
-// import { IonicModule } from '@ionic/angular';
 
-// import { PlacesPage } from './places.page';
+//        import { NgModule } from '@angular/core';
+//        import { CommonModule } from '@angular/common';
+//        import { FormsModule } from '@angular/forms';
+// => import { Routes, RouterModule } from '@angular/router';
 
-// const routes: Routes = [
-//   {
-//     path: '',
-//     component: PlacesPage
-//   }
-// ];
+//        import { IonicModule } from '@ionic/angular';
 
-// @NgModule({
-//   imports: [
-//     CommonModule,
-//     FormsModule,
-//     IonicModule,
-//     RouterModule.forChild(routes)
+//        import { PlacesPage } from './places.page';
+
+// =>   const routes: Routes = [
+//         {
+//           path: '',
+//           component: PlacesPage
+//         }
+//      ];
+
+//        @NgModule({
+//        imports: [
+//                    CommonModule,
+//                    FormsModule,
+//                    IonicModule,
+// =>         RouterModule.forChild(routes)
 //   ],
 //   declarations: [PlacesPage]
 // })
