@@ -1,19 +1,38 @@
 // tslint:disable-next-line: quotemark
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'places', pathMatch: 'full' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
-  { path: 'places', loadChildren: './places/places.module#PlacesPageModule' },
+  {
+    path: 'places', loadChildren: './places/places.module#PlacesPageModule',
+    canLoad: [AuthGuard] },
   {
     path: 'bookings',
-    loadChildren: './bookings/bookings.module#BookingsPageModule'
-  },
-  {
-    path: 'bookings',
-    loadChildren: './bookings/bookings.module#BookingsPageModule'
+    loadChildren: './bookings/bookings.module#BookingsPageModule',
+    canLoad: [AuthGuard]
   }
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+
+
+
+
+  // {
+  //   path: 'bookings',
+  //   loadChildren: './bookings/bookings.module#BookingsPageModule'
+  // }
 
   // below are the default routes provided by ng cli. one path for each route
   // just preload (PreloadAllModules) the top level pages (auth/places/bookings)
@@ -31,12 +50,4 @@ const routes: Routes = [
   // { path: 'offer-bookings', loadChildren: './places/offers/offer-bookings/offer-bookings.module#OfferBookingsPageModule' },
   // { path: 'new-offer', loadChildren: './places/offers/new-offer/new-offer.module#NewOfferPageModule' },
   // { path: 'edit-offer', loadChildren: './places/offers/edit-offer/edit-offer.module#EditOfferPageModule' },
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
+// ];
