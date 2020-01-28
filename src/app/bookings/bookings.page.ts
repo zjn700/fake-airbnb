@@ -21,5 +21,6 @@ export class BookingsPage implements OnInit {
   onCancelBooking(offerId: string, slidingEl: IonItemSliding) {
     slidingEl.close();
     // cancel booking wiht id offerId
+    // test of working copy and git
   }
 }
